@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inox</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function BookClick(){
+            document.getElementById("lblName").innerHTML = document.getElementById("lstMovie").value;
+            document.getElementById("lblCinema").innerHTML = document.getElementById("lstCinema").value;
+            document.getElementById("lblDate").innerHTML = document.getElementById("lstDate").value;
+            document.getElementById("lblTime").innerHTML = document.getElementById("lstTime").value;
+            document.getElementById("lblSeats").innerHTML = document.getElementById("lstSeats").value;
+
+            var poster = document.getElementById("poster");
+            var movieName = document.getElementById("lstMovie").value;
+
+            if(movieName=="Kantara") {
+                poster.src = "../public/image/ac.jpg";
+            } else {
+                poster.src = "../public/image/tv.jpg";
+            }
+           
+           
+           
+           
+        }
+    </script>
+    <style>
+          select:disabled{
+            cursor:not-allowed;
+
+        }
+        button:disabled{
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <header class="mt-2 bg-dark p-2 d-flex justify-content-between">
+        <div>
+            <select id="lstMovie" class="form-select">
+                <option>Select Movie</option>
+                <option>Kantara</option>
+                <option>Ram Setu</option>
+            </select>
+        </div>
+        <div>
+            <select id="lstCinema"  class="form-select">
+                <option>Select Cinema</option>
+                <option>GVK B'hills</option>
+                <option>PVR Ameerpet</option>
+            </select>
+        </div>
+        <div>
+            <select id="lstDate"  class="form-select">
+                <option>Select Date</option>
+                <option>Today 5 November</option>
+                <option>Tommorow 6 November</option>
+            </select>
+        </div>
+        <div>
+            <select id="lstTime"  class="form-select">
+                <option>Select Timing</option>
+                <option>10:45 AM</option>
+                <option>05:20 PM</option>
+            </select>
+        </div>
+        <div>
+            <select id="lstSeats"  class="form-select">
+                <option>Select Seats</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+        <div>
+            <button onclick="BookClick()"  id="btnbook" data-bs-target="#summary" data-bs-toggle="modal" class="btn btn-danger">Book</button>
+        </div>
+    </header>
+    <div class="modal fade" id="summary">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Booking Summary</h2>
+                    <button data-bs-dismiss="modal" class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card p-2">
+                        <img height="200" class="card-img-top" id="poster">
+                        <div class="card-body">
+                            <dl>
+                                <dt>Movie Name</dt>
+                                <dd id="lblName"></dd>
+                                <dt>Cinema</dt>
+                                <dd id="lblCinema"></dd>
+                                <dt>Date</dt>
+                                <dd id="lblDate"></dd>
+                                <dt>Show Time</dt>
+                                <dd id="lblTime"></dd>
+                                <dt>Seats</dt>
+                                <dd id="lblSeats"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
